@@ -21,9 +21,10 @@ class Sensor //Sensor class
     int readsensor();
   private :
   int _pinsensor;
+  //calibration values to be added
 }
 
-class Actuator //actually this class is for electrovalves that open/close after a HIGH state for less than a second 
+class Actuator //actually this class is for electrovalves that open/close with a HIGH state on pin for 50ms 
 {
   public :
     Actuator (int pinactuator);
@@ -35,7 +36,7 @@ class Actuator //actually this class is for electrovalves that open/close after 
     int _pinactuator;
     int _state;
 
-class Garden
+class Garden //class for garden parameters sensors and valves in each share the same conf parameters
 {
   public :
     Garden (String configuration);
@@ -46,6 +47,7 @@ class Garden
   String _configuration;
   int _pinsensor;
   int _pinactuator;
+  //parameters to be added
 }
 
 
