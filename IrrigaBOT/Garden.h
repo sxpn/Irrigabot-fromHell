@@ -14,7 +14,7 @@
 
 #include "Arduino.h"
 
-class Sensor
+class Sensor //Sensor class
 {
   public :
     Sensor (int pinsensor);
@@ -23,7 +23,7 @@ class Sensor
   int _pinsensor;
 }
 
-class Actuator
+class Actuator //actually this class is for electrovalves that open/close after a HIGH state for less than a second 
 {
   public :
     Actuator (int pinactuator);

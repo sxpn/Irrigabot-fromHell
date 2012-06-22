@@ -43,8 +43,10 @@ int Actuator::openactuator() //open the electrovalve
 {
   if (_state == 0 )                   //verify that the electrovalve is closed
   {
-    digitalWrite(_pinactuator, HIGH); //open the electrovalve
-    _state = 1 ;                      // change state of electrovalve to open
+    digitalWrite(_pinactuator, HIGH); //impulse to open the electrovalve
+    _state = 1 ;    // change state of electrovalve to open
+    delay (50);
+    digitalWrite(_pinactuator, LOW); //end impulse
     return (0);
   }
   else                                //if valve is already open !! OMG 
@@ -57,8 +59,10 @@ int Actuator::closeactuator() //close the electrovalve
 {
   if (_state == 1 )                   //verify that the electrovalve is open
   {
-    digitalWrite(_pinactuator, HIGH); //close the electrovalve
+    digitalWrite(_pinactuator, HIGH); //impulse to close the electrovalve
     _state = 0 ;                      // change state of electrovalve to close
+    delay (50);
+    digitalWrite(_pinactuator, LOW); //end impulse
     return (0);
   }
   else                                //if valve is already closed !! OMG 
