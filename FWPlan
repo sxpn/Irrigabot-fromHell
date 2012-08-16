@@ -1,0 +1,38 @@
+lasttime=0
+while (0)
+{ 
+	read time
+	if( lastreadtime - time > sensor_polling_interval)
+	{
+		read sensors[i];
+		store lastvalue[i] in ram;
+		log lastvalues[i];
+	}
+	
+	for  (i=0 i > 4 ; i++)
+	{
+		if ( electrovalvestate[all] = 0 )
+		{	
+			if ( lastvalue[i] < moisture_threshold )
+			{
+				open electrovalve[i];
+				openevtime[i] = now ;
+				electrovalvestate[i] = 1;
+				log openevtime[i];
+			}
+		}
+		if ( electrovalvestate[i] !=0 )
+		{
+			if (openevtime-time > openevinterval )
+			{
+					close electrovalve[i];
+					electrovalvestate[i]=0;
+					openevtime[i]=0;
+					log closeevtime[i];
+			}
+		}
+	}
+}
+		
+		
+}
